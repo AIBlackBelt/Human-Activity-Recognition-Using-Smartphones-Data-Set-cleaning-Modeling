@@ -1,5 +1,5 @@
 
-## First we merge the training/dataset into a unified dataset containing 10299 record (7352 record for training data, 2947 record for test data )
+# First we merge the training/dataset into a unified dataset containing 10299 record (7352 record for training data, 2947 record for test data )
 X_train <- read.table("~/Mywork/Getting and cleaning data Coursera/getdata_projectfiles_UCI HAR Dataset(1)/UCI HAR Dataset/train/X_train.txt", quote="\"", comment.char="")
 X_test <- read.table("~/Mywork/Getting and cleaning data Coursera/getdata_projectfiles_UCI HAR Dataset(1)/UCI HAR Dataset/test/X_test.txt", quote="\"", comment.char="")
 merged_data = rbind(X_train,X_test)
@@ -53,9 +53,8 @@ for (i in 1:561){
 extracted_mean_features = predictive_variables[,grep("mean",features$V2)]
 
 extracted_std_features = predictive_variables[,grep("std",features$V2)]
-
-all_mean,std_columns_indices = c(grep("mean",features$V2),grep("std",features$V2))
-
+all_columns_names = c(grep("mean",features$V2,value = "TRUE"),grep("std",features$V2,value = "TRUE"))
+all_columns_indices = c(grep("mean",features$V2),grep("std",features$V2))
 dataset = predictive_variables[,all_columns_indices]
 
 #Next we add the ID column that refers to the subject which conducted the experiement,as well as the activity label for each experiment
