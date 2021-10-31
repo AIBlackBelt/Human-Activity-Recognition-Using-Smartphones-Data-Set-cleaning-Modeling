@@ -49,30 +49,7 @@ Fast Fourier Transform (FFT) was applied to some of these signals producing fBod
 [79] "fBodyBodyGyroJerkMag-std()"    
 there's also the ID that identifies each subject who did each experiments (we have a total for of 10299 experiment, 30 subjects who did multiple expriments)
 Finally the activity label, "activity type" which refers to either one of these options :  (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
-Transformations : 
-1) The first operation we proceeded with is importing data from the data files, we did it to all the resources files (including the ones who provides features name, activity labels, subjects ID)
-2) Then we proceeded to merge data, we had two seperate dataset at the beginning (one used for training another one for testing). We merged all the training data files with their correspondings data file in the testing data. The was done using the R function rbind() which take as parameter the data related to training and test,produces as result a dataframe object that we saved into a file using write.csv()
-
-3)We moved on to the next step which is detecting the variables indices that we are interested in, since we are only looking for the mean and std measurements, we queried only the variables name which has the token "mean" or "std" from the file which has the all the variables names. We also queried their indices, we will need their indices to extract them from the whole dataset later on.
-
-4)Then we went on renaming all the variables names appropriately according to the names written in the file features.txt.
-
-5) Now is the time to extract only the columns that refers to a mean or std measurements, in order to do this we use the same command we did in step 3 to extract a subset of columns that is related to a mean or std measurment.
-
-6) We add the ID column, the activity column as well, for now the activity labels are encoded using integers from 1 to 6. 
-
-7) We replace each activity encoder by it's real meaning :
-
-1 : WALKING
-2 : WALKING_UPSTAIRS
-3 : WALKING_DOWNSTAIRS
-4 : SITTING
-5 : STANDING
-6 : LAYING
-
-8) Next we proceeds with a few queries commands, we would like to compute the averge of all columns (execpt ID and activity) for each activity type and subject. the results are saved in the files : average_per_activity.csv/ average_per_subject_id.csv
-
-9) Finally, we move on the inertial signals :
+We also have the inertial signals :
 body accelation according to x axis
 body accelation according to y axis
 body accelation according to z axis
@@ -83,4 +60,15 @@ total accelation according to x axis
 total accelation according to y axis
 total accelation according to z axis
 
-each feature above is measured periodically with a frequence of 50 Hz, the sample size is 128 measure, we does the same as before, computing the averge of the whole sample one of them and append it our dataset and finally save the final dataset into a csv file  "deliverable.csv", which has 10299 record, 90 columns.
+since they are sampled on a 50 Hz pace, the total sample size of each one them is 128, we compute the average of the 128 sample, we get 9 pther columns in addition to the previous columns : 
+body_acc_x_av
+body_acc_y_av
+body_acc_z_av
+body_gyro_x_av 
+body_gyro_y_av 
+body_gyro_z_av
+total_acc_x_av 
+total_acc_y_av
+total_acc_z_av
+
+
