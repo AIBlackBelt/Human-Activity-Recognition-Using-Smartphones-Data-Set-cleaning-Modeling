@@ -46,3 +46,8 @@ each feature above is measured periodically with a frequence of 50 Hz, the sampl
 9) We will reorder the column, so that the subject ID and activity type appears first followed by the measurements.
 
 10) We proceed with the final step which is calculating the average of each column group by subjects and activity type seperately, after doing so we merge the two datasets vertically and save the result in the file "average_per_activity_subject.txt".
+
+# Human Activity Recognition Using Smartphones Data Set Modeling
+
+for the modeling part, I used the kaggle version of the dataset : https://www.kaggle.com/datasets/uciml/human-activity-recognition-with-smartphones.
+kaggle notebook : https://www.kaggle.com/code/majdikarim/0-963-pca-svm-logistic-regression
